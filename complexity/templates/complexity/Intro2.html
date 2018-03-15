@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Introduction to Module 1
+
+{% endblock %}
+
+{% block content %}
+    Module 1 will consist of 10 different rounds. At the beginning of the first round, you will be randomly assigned a
+    role of either Player 1 or Player 2. You will keep that role for the remainder of this module.
+
+    In each round, all participants will be randomly matched into pairs, each consisting of one Player 1 and one Player
+    2. In each new round, the participants will be re-matched into pairs, always matched with a new/different
+    participant. The composition of matched pairs will, thus, always be different in different rounds of the module. All
+    of participants' interactions will take place anonymously through a computer terminal, so your true personal
+    identity will never be revealed to others, and you will not know who precisely is in your pair in any round of the
+    experiment.
+
+    In each round of the experiment, the subject in the role of Player 1 makes choices that affect the outcomes with
+    respect to two Tasks. For each of these Tasks, Player 1’s choices are to pay a cost for increasing the probability
+    that the outcome on that Task is Success or to forego that cost, with the consequence of the outcome on that Task is
+    certain to be Failure.
+
+    If Player 1 chooses to pay the cost, the chance of Success on that Task is 5 out of 10, that is, there is a .5
+    probability of the outcome on that Task being Success. If Player 1 chooses not to pay that cost, then the outcome on
+    that Task is Failure.
+
+    Player 2 will be paid depending on the outcome of the Tasks. Player 1 will be paid depending on Player 2’s decision
+    whether to retain or fire (IS AWARD THE BONUS BETTER? SINCE THEY ARE NOT MAKING ANOTHER CHOICE FOR THE SAME
+    PRINCIPAL, FIRE/RETAIN IS AWKWARD) Player 1.
+
+    Your earnings from the session/module will be determined by a random selection of one (OR MORE? HOW MANY – DEPENDS
+    ON THE EXCHANGE RATE…) of the rounds for compensation.
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Player 2 Example:
+
+
+{% endblock %}
+
+{% block content %}
+        [AFTER 10 ROUNDS OF PLAY]  Payoff Screen for both Players:
+
+                You have played 10 rounds of this game
+                One of these 10 rounds has been randomly selected in order to determine your earnings for these 10
+    rounds
+                Round 6 was chosen — Player 1’s earnings for this module of the experiment is 900 ECUs; Player 2’s
+    earnings for this module of the experiment is 730 ECUs.
+
+        
+    Instruction Screen for module 2 of the experiment:
+
+                You will now switch roles with Player 1 [2] and continue to play 10 more rounds of the exact same game.
+
+
+
+    {% next_button %}
+
+{% endblock %}
