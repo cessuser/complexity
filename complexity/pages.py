@@ -34,7 +34,9 @@ class Intro2(CustomPage):
 
 
 class P1Instructions(P1Page):
-    first_page = True
+    def is_displayed(self):
+        # we show the swtich role page only as the first page  between role switching
+        return super().is_displayed() and (self.round_number == Constants.num_first_part + 1 or self.round_number == 1)
 
 
 class P1Example(P1Page):
@@ -42,7 +44,9 @@ class P1Example(P1Page):
 
 
 class P2Instructions(P2Page):
-    first_page = True
+    def is_displayed(self):
+        # we show the swtich role page only as the first page  between role switching
+        return super().is_displayed() and (self.round_number == Constants.num_first_part + 1 or self.round_number == 1)
 
 
 class P2Example(P2Page):
@@ -53,6 +57,10 @@ class SwitchRoles(CustomPage):
     def is_displayed(self):
         # we show the swtich role page only as the first page  between role switching
         return self.round_number == Constants.num_first_part + 1
+
+    def vars_for_template(self):
+        chosen_round = self.participant.vars['paying_rounds'][0]
+        return {'chosen_payoff': self.player.in_round(chosen_round).payoff}
 
 
 class P1Decision(P1Page):
@@ -92,19 +100,25 @@ class FinalResults(CustomPage):
     def is_displayed(self):
         return super().is_displayed() and self.round_number == Constants.num_rounds
 
+    def vars_for_template(self):
+        chosen_round = self.participant.vars['paying_rounds'][1]
+
+        return {'chosen_payoff': self.player.in_round(chosen_round).payoff,
+                'paying_round2': chosen_round - Constants.num_first_part}
+
 
 page_sequence = [
-    # SwitchRoles,
-    # Intro,
-    # Intro2,
-    # P1Instructions,
+    SwitchRoles,
+    Intro,
+    Intro2,
+    P1Instructions,
     # P1Example,
-    # P2Instructions,
+    P2Instructions,
     # P2Example,
     P1Decision,
     P2FirstDecision,
     P2SecondDecision,
     BeforeOutcomeWP,
     Outcome,
-    # FinalResults
+    FinalResults
 ]

@@ -1,24 +1,39 @@
 {% extends "global/PageExt.html" %}
 {% load staticfiles otree %}
 
-{% block inner_title %}
-    Player 2 Example:
-
+{% block title %}
+    Final results
 
 {% endblock %}
 
 {% block inner_content %}
-        [AFTER 10 ROUNDS OF PLAY]  Payoff Screen for both Players:
+      
 
-                You have played 10 rounds of this game
-                One of these 10 rounds has been randomly selected in order to determine your earnings for these 10
-    rounds
-                Round 6 was chosen — Player 1’s earnings for this module of the experiment is 900 ECUs; Player 2’s
-    earnings for this module of the experiment is 730 ECUs.
+    <div class="card mb-3 ">
+        <div class="card-header">
 
-        
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <div>
+                        You have played {{ Constants.num_second_part }} rounds of this game.
+                    </div>
+
+                    <div>
+                        One of these {{ Constants.num_second_part }} rounds has been randomly selected in order
+                        to determine your earnings for these {{ num_second_part.num_first_part }}rounds.
+                    </div>
+                    <div>
+                        Round <strong>{{ paying_round2 }}</strong> was chosen.
+                    </div>
+                    <div>
+                        Your earnings for this round are: <strong>{{ chosen_payoff }}</strong>
+                    </div>
+                </div>
 
 
-    {% next_button %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

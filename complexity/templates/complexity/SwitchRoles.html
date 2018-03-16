@@ -1,28 +1,43 @@
 {% extends "global/PageExt.html" %}
 {% load staticfiles otree %}
 
-{% block inner_title %}
-    Player 2 Example:
+{% block title %}
 
 
 {% endblock %}
 
-{% block inner_content %}
-        [AFTER 10 ROUNDS OF PLAY]  Payoff Screen for both Players:
-
-                You have played 10 rounds of this game
-                One of these 10 rounds has been randomly selected in order to determine your earnings for these 10
-    rounds
-                Round 6 was chosen — Player 1’s earnings for this module of the experiment is 900 ECUs; Player 2’s
-    earnings for this module of the experiment is 730 ECUs.
-
-        
-    Instruction Screen for module 2 of the experiment:
-
-                You will now switch roles with Player 1 [2] and continue to play 10 more rounds of the exact same game.
+{% block content %}
 
 
+    <div class="card ">
+        <div class="card-header">
 
-    {% next_button %}
+            <div class="card-body">
+                <h5 class="card-title">Switching roles</h5>
+                <div class="mb-3">
+                    <div>
+                        You have played {{ Constants.num_first_part }} rounds of this game.
+                    </div>
+                    <div>
+                        You will now switch roles with {{ player.get_role_name }} and continue to
+                        play {{ Constants.num_second_part }}
+                        more
+                        rounds of the exact same game.
+                    </div>
+                    <div>
+                        One of these {{ Constants.num_first_part }} rounds has been randomly selected in order
+                        to determine your earnings.
+                    </div>
+                    <div>
+                        Round <strong>{{ participant.vars.paying_rounds.0 }}</strong> was chosen.
+                    </div>
+                    <div>
+                        Your earnings for this round are: <strong>{{ chosen_payoff }}</strong>
+                    </div>
+                </div>
 
+                {% next_button %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

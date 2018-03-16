@@ -1,61 +1,105 @@
 {% extends "global/PageExt.html" %}
 {% load staticfiles otree %}
 
-{% block inner_title %}
-    Player 2 Instructions:
+{% block title %}
+    Player 2 Instructions
 
 {% endblock %}
 
 {% block inner_content %}
-    You are Player 2 in this game and have been randomly matched with Player 1.
+    <div class="col-12 mb-3 ">
+        <div class="card card-body bg-light">
+            <div class="mb-2 ">
+                You are {{player.get_role_name}} in this game and have been randomly matched with Player 1.
+            </div>
+            <div class="mb-2 ">
+                Player 1 has an initial endowment of 300 ECUs. That player can use this endowment to pay a cost to
+                increase the
+                probability of Success on ONE, BOTH, OR NEITHER OF 2 Tasks Task 1 and Task 2. The cost to Player 1 of
+                increasing the
+                probability of Success on either Task is 150 ECUs. Thus, if Player 1 chooses to pay the cost on one of
+                the two
+                Tasks, s/he will be deducted 150 ECUs from that round’s payoff. If s/he chooses to pay the cost on both
+                Tasks, s/he
+                will be deducted 300 ECUs from that round’s payoff. If s/he chooses not to pay the cost on either Task,
+                s/he will
+                keep your 300 ECUs.
+            </div>
+            <div class="mb-2 ">
 
-    Player 1 has an initial endowment of 300 ECUs. That player can use this endowment to pay a cost to increase the
-    probability of Success on ONE, BOTH, OR NEITHER OF 2 Tasks Task 1 and Task 2. The cost to Player 1 of increasing the
-    probability of Success on either Task is 150 ECUs. Thus, if Player 1 chooses to pay the cost on one of the two
-    Tasks, s/he will be deducted 150 ECUs from that round’s payoff. If s/he chooses to pay the cost on both Tasks, s/he
-    will be deducted 300 ECUs from that round’s payoff. If s/he chooses not to pay the cost on either Task, s/he will
-    keep your 300 ECUs.
+                If Player 1 chooses to pay the cost on a given Task, the chance of Success on that Task is 5 out of 10,
+                that is,
+                there is a .5 probability of the outcome on that Task being Success. If Player 1 chooses not to pay that
+                cost, then
+                the outcome on that Task is Failure.
 
-    If Player 1 chooses to pay the cost on a given Task, the chance of Success on that Task is 5 out of 10, that is,
-    there is a .5 probability of the outcome on that Task being Success. If Player 1 chooses not to pay that cost, then
-    the outcome on that Task is Failure.
+            </div>
+            <div class="mb-2 ">
 
-    Depending on the outcomes on the two Tasks, you can earn money.
 
-    In each round, before observing the outcomes on the Tasks, you will first choose a rule that determines when Player
-    1 is retained or fired contingent on the outcomes on the Tasks. Your choices will be:
+                Depending on the outcomes on the two Tasks, you can earn money.
 
-    NEVER Retain Player 1
-    Retain Player 1 if Success on BOTH Tasks
-    Retain Player 1 if Success on Task 1, OR on Task 2, OR on BOTH Task 1 AND Task 2
-    Retain Player 1 if Success on Task 1
-    Retain Player 1 if Success on Task 2
-    ALWAYS Retain Player 1
+                In each round, before observing the outcomes on the Tasks, you will first choose a rule that determines
+                when Player
+                1 is retained or fired contingent on the outcomes on the Tasks. Your choices will be:
+            </div>
 
-    If according to the retention rule you announced, Player 1 is retained, Player 1 will earn an additional 900 ECUs.
-    If according to the retention rule you announced Player 1 is fired, then Player 1 will not earn any additional
-    money.
+            <div class="mb-2 ">
 
-    You will then make a second choice: a guess of what choices Player 1 is going to make.
+                <ul>
+                    {% for i in Constants.RETAININGCHOICES %}
+                        <li>{{ i.1 }}</li>
+                    {% endfor %}
 
-    The payoff you will receive for the round will depend on two things: the outcomes on each task, and your guesses of
-    Player 1’s choices. For each Task outcome of Success, you will gain 280 ECUs. And for each correct guess of Player
-    1’s choice, you will gain 140 ECUs.
+                </ul>
+            </div>
+            <div class="mb-2 ">
 
-    To illustrate: suppose, as in the example above, that Player 2 chose “Always Retain.” Suppose, further, that Player
-    2 guessed that Player 1 would choose to pay the cost on both Tasks, which turned out to be correct.
+                If according to the retention rule you announced, Player 1 is retained, Player 1 will earn an additional
+                900 ECUs.
+                If according to the retention rule you announced Player 1 is fired, then Player 1 will not earn any
+                additional
+                money.
 
-    If the outcomes on both Tasks turn out to be Success, then s/he will receive
-    280 ECUs (Task 1) + 280 ECUs (Task 2) + 140 ECU (guess on Task 1) +140 ECU (guess on Task 2) = 840 ECUs.
+                You will then make a second choice: a guess of what choices Player 1 is going to make.
 
-    If the outcome on Task 1 is Success but the outcome on Task 2 is Failure, then Player 2 receives 280 ECUs (Task 1) +
-    0 ECUs (Task 2) + 140 ECU (guess on Task 1) + 140 ECU (guess on Task 2) = 560 ECUs.
+            </div>
+            <div class="mb-2 ">
 
-    If the outcome on Task 1 is Failure but the outcome on Task 2 is Success, then Player 2 receives 0 ECUs (Task 1) +
-    280 ECUs (Task 2) + 140 ECU (guess on Task 1) + 140 ECU (guess on Task 2) = 560 ECUs.
+                The payoff you will receive for the round will depend on two things: the outcomes on each task, and your
+                guesses of
+                Player 1’s choices. For each Task outcome of Success, you will gain 280 ECUs. And for each correct guess
+                of Player
+                1’s choice, you will gain 140 ECUs.
 
-    If the outcome on both Tasks is Failure, then Player 2 receives
-    0 ECUs (Task 1) + 0 ECUs (Task 2) + 140 ECU (guess on Task 1) +140 ECU (guess on Task 2) = 280 ECUs.
-    {% next_button %}
+            </div>
+
+            <div class="mb-2 ">
+                To illustrate: suppose, as in the example above, that Player 2 chose “Always Retain.” Suppose, further,
+                that Player
+                2 guessed that Player 1 would choose to pay the cost on both Tasks, which turned out to be correct.
+            </div>
+            <div class="mb-2 ">
+                If the outcomes on both Tasks turn out to be Success, then s/he will receive
+                280 ECUs (Task 1) + 280 ECUs (Task 2) + 140 ECU (guess on Task 1) +140 ECU (guess on Task 2) = 840 ECUs.
+            </div>
+            <div class="mb-2 ">
+                If the outcome on Task 1 is Success but the outcome on Task 2 is Failure, then Player 2 receives 280
+                ECUs (Task 1) +
+                0 ECUs (Task 2) + 140 ECU (guess on Task 1) + 140 ECU (guess on Task 2) = 560 ECUs.
+            </div>
+            <div class="mb-2 ">
+                If the outcome on Task 1 is Failure but the outcome on Task 2 is Success, then Player 2 receives 0
+                ECUs (Task 1) +
+                280 ECUs (Task 2) + 140 ECU (guess on Task 1) + 140 ECU (guess on Task 2) = 560 ECUs.
+            </div>
+            <div class="mb-2 ">
+
+                If the outcome on both Tasks is Failure, then Player 2 receives
+                0 ECUs (Task 1) + 0 ECUs (Task 2) + 140 ECU (guess on Task 1) +140 ECU (guess on Task 2) = 280 ECUs.
+            </div>
+
+        </div>
+    </div>
 
 {% endblock %}
