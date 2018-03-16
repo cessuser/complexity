@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block global_styles %}
+{% endblock %}
+
+{% block global_scripts %}
+{% endblock %}
+
+{% block title %}
+
+    {% block inner_title %}{% endblock %}. Round {{ view.round_number }} of {{ Constants.num_rounds }}
+
+{% endblock %}
+
+{% block content %}
+
+
+    {% block inner_content %}
+
+
+    {% endblock %}
+
+    {% next_button %}
+
+{% endblock %}

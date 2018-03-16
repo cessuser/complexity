@@ -1,12 +1,13 @@
-{% extends "global/Page.html" %}
+{% extends "global/PageExt.html" %}
 {% load staticfiles otree %}
 
-{% block title %}
-    Introduction
+{% block inner_title %}
+    Introduction. Round {{ view.round_number }}
 
 {% endblock %}
 
-{% block content %}
+{% block inner_content %}
+    <h1>Your role is: {{ player.role }}</h1>
     This is an experiment on group decision-making. In this experiment you will make a series of choices. At the end of
     the experiment, you will be paid depending on the specific choices that you made during the experiment and the
     choices made by other participants.

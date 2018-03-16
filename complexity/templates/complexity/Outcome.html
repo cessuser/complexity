@@ -1,35 +1,60 @@
-{% extends "global/Page.html" %}
+{% extends "global/PageExt.html" %}
 {% load staticfiles otree %}
 
-{% block title %}
-    Player 1 Instructions:
+{% block inner_title %}
+    Outcome
 
 
 {% endblock %}
 
-{% block content %}
-    You are Player 1 in this game and have been randomly matched with Player 2.
+{% block inner_content %}
+    <table class="table table-hover table-striped">
+        <tr>
+            <td>The outcome on Task 1 is</td>
+            <td>{{ group.get_task1outcome_display }}</td>
+        </tr>
+        <tr>
+            <td>The outcome on Task 2 is</td>
+            <td>{{ group.get_task2outcome_display }}</td>
+        </tr>
+        {% if player.role == 'P1' %}
+            <tr>
+                <td>Your endowment</td>
+                <td>{{ Constants.p1endowment }}</td>
+            </tr>
+            <tr>
+                <td>Your cost on Task 1:</td>
+                <td>{{ task1cost }}</td>
+            </tr>
+            <tr>
+                <td>Your cost on Task 1:</td>
+                <td>{{ task2cost }}</td>
+            </tr>
+            <tr>
+                <td>P2 Retention decision:</td>
+                <td>{{ group.get_retention_decision|yesno:'Retain, Fire' }}</td>
+            </tr>
+            <tr>
+                <td>Your gain from retention:</td>
+                <td>{{ retention_gain }}</td>
+            </tr>
 
-    In this game you will be asked whether you want to pay a cost to increase the probability of Success on ONE, BOTH,
-    OR NEITHER OF 2 Tasks: Task 1 and Task 2. You have an initial endowment of 300 ECUs (remember that 300
-    ECUs=XX£) that you can spend to increase the probability of Success on either Task. The cost to you of increasing
-    the probability of Success on either Task is 150 ECUs. Thus, if you choose to pay the cost on one of the two Tasks,
-    you will be deducted 150 ECUs from that round’s payoff. If you choose to pay the cost on both Tasks, you will be
-    deducted 300 ECUs from that round’s payoff. If you choose to not pay the cost on either Task, you will keep your 300
-    ECUs.
+        {% else %}
+            <tr>
+                <td>Your gain from tasks success:</td>
+                <td>{{ sum_task_success_gain }}</td>
+            </tr>
+            <tr>
+                <td>Your gain from correct guessing of P1 decisions:</td>
+                <td>{{ sum_guess_gain }}</td>
+            </tr>
+        {% endif %}
+        <tr>
+            <td>Your payoff in this round:</td>
+            <td>{{ player.payoff }}</td>
+        </tr>
 
-    Before you make your decision whether to pay the cost(s) to improve the probability of success on Tasks 1 and 2,
-    Player 2 will be asked for what outcomes s/he will Retain you or Fire you.
+    </table>
 
-    Here are the Retention Decision rules Player 2 can announce:
-
-    NEVER Retain Player 1
-    Retain Player 1 if Success on BOTH Tasks
-    Retain Player 1 if Success on Task 1, OR on Task 2, OR on BOTH Task 1 AND Task 2
-    Retain Player 1 if Success on Task 1
-    Retain Player 1 if Success on Task 2
-    ALWAYS Retain Player 1
-
-    {% next_button %}
 
 {% endblock %}

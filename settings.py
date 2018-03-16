@@ -18,7 +18,7 @@ SESSION_CONFIGS = [
     {
         'name': 'complexity',
         'display_name': "complexity",
-        'num_demo_participants': 1,
+        'num_demo_participants': 2,
         'app_sequence': ['complexity'],
     },
 ]
