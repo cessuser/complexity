@@ -104,7 +104,7 @@ class Group(BaseGroup):
 
     def get_sum_guess_prize(self):
         return ((self.task1decision == self.task1guess) + (
-            self.task2decision == self.task2guess) * Constants.guess_prize)
+            self.task2decision == self.task2guess)) * Constants.guess_prize
 
     def set_payoff(self):
         self.set_outcome()
