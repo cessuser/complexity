@@ -3,6 +3,11 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
+def vars_for_all_templates():
+    return {'role1': Constants.roles_dict['P1'],
+            'role2': Constants.roles_dict['P2'], }
+
+
 class CustomPage(Page):
     role = None
     first_page = None

@@ -9,61 +9,63 @@
 {% block inner_content %}
     <div class="col-12 mb-3 ">
         <div class="card card-body bg-light">
+
+
             <div class="mb-2 ">
-                Module 1 will consist of {{Constants.num_first_part}} different rounds. At the beginning of the first round, you will be randomly
-                assigned a
-                role of either Player 1 or Player 2. You will keep that role for the remainder of this module.
+                The experiment in Module 1 will consist of {{ Constants.num_first_part }} different rounds. At the
+                beginning
+                of the first round, you
+                will be randomly assigned a role of either {{ role1 }} or {{ role2 }}. You will keep that role for the
+                remainder
+                of this experiment.
             </div>
             <div class="mb-2 ">
-                In each round, all participants will be randomly matched into pairs, each consisting of one Player 1 and
-                one Player
-                2. In each new round, the participants will be re-matched into pairs, always matched with a
-                new/different
-                participant. The composition of matched pairs will, thus, always be different in different rounds of the
-                module. All
-                of participants' interactions will take place anonymously through a computer terminal, so your true
-                personal
-                identity will never be revealed to others, and you will not know who precisely is in your pair in any
-                round of the
-                experiment.
-            </div>
-            <div class="mb-2 ">
-
-                In each round of the experiment, the subject in the role of Player 1 makes choices that affect the
-                outcomes with
-                respect to two Tasks. For each of these Tasks, Player 1’s choices are to pay a cost for increasing the
-                probability
-                that the outcome on that Task is Success or to forego that cost, with the consequence of the outcome on
-                that Task is
-                certain to be Failure.
-
+                In each round, all participants will be randomly matched into pairs, each consisting of one {{ role1 }}
+                and
+                one
+                {{ role2 }}. In each new round, the participants will be re-matched into pairs, always matched with a
+                new/different participant. The composition of matched pairs will, thus, always be different in different
+                rounds of this experiment. All of participants' interactions will take place anonymously through a
+                computer
+                terminal, so your true personal identity will never be revealed to others, and you will not know who
+                precisely is in your pair in any round of the experiment.
             </div>
             <div class="mb-2 ">
 
-
-                If Player 1 chooses to pay the cost, the chance of Success on that Task is {{ Constants.pweights.0 }}
-                out of {{ Constants.tot_prop }}, that is, there
-                is a {{ Constants.prob }}
-                probability of the outcome on that Task being Success. If Player 1 chooses not to pay that cost, then
-                the outcome on
-                that Task is Failure.
-
-            </div>
-
-            <div class="mb-2 ">
-
-                Player 2 will be paid depending on the outcome of the Tasks. Player 1 will be paid depending on Player
-                2’s decision
-                whether to retain or fire (IS AWARD THE BONUS BETTER? SINCE THEY ARE NOT MAKING ANOTHER CHOICE FOR THE
-                SAME
-                PRINCIPAL, FIRE/RETAIN IS AWKWARD) Player 1.
+                In each round of the experiment, the subject in the role of {{ role1 }} makes choices that affect the
+                outcomes
+                with respect to two Tasks. For each of these Tasks, {{ role1 }}’s choices are to pay a cost for
+                increasing
+                the
+                probability that the outcome on that Task is Success or to forego that cost, with the consequence of the
+                outcome on that Task is certain to be Failure.
 
             </div>
             <div class="mb-2 ">
 
-                Your earnings from the session/module will be determined by a random selection of one (OR MORE? HOW MANY
-                – DEPENDS
-                ON THE EXCHANGE RATE…) of the rounds for compensation.
+
+                If {{ role1 }} chooses to pay the cost, the chance of Success on that Task is {{ Constants.pweights.0 }}
+                out
+                of {{ Constants.tot_prop }} – that is, there is a
+                {{ Constants.prob }} probability of the outcome on that Task being Success. If {{ role1 }} chooses not
+                to
+                pay that cost, then
+                the
+                outcome on that Task is Failure.
+
+            </div>
+
+            <div class="mb-2 ">
+
+                {{ role2 }} will be paid depending on the outcome of the Tasks. {{ role1 }} will be paid depending
+                on {{ role2 }}’s
+                decision whether to reward {{ role1 }}.
+
+            </div>
+            <div class="mb-2 ">
+
+                Your earnings from this experiment will be determined by a random selection of two rounds for
+                compensation.
 
             </div>
         </div>
