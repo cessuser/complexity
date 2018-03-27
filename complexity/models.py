@@ -28,13 +28,13 @@ class Constants(BaseConstants):
     name_in_url = 'complexity'
     players_per_group = 2
     assert players_per_group == 2, 'Number of players should be 2 for correct role assignemnt'
-    num_rounds = 4
-    num_first_part = 2
+    num_rounds = 20
+    num_first_part = 10
     num_second_part = num_rounds - num_first_part
     # how many practice rounds we have
     num_practice = 0
     # when the second decision (guess) about p1 decision is shwon
-    num_second_dec = 1
+    num_second_dec = 3
     assert num_first_part < num_rounds, 'First set of decisions should be less then total number of rounds'
     assert num_practice < num_first_part and num_practice < num_second_part, 'training rounds number should be ' \
                                                                              'strictly less than total number of rounds'
@@ -54,7 +54,6 @@ class Constants(BaseConstants):
         'P2': 'Player 2',
     }
     RETAININGCHOICES = (
-        # TODO: change the structure!
         (0, 'NEVER Reward Player 1'),
         (1, 'Reward Player 1 if Success on BOTH Tasks'),
         (2, 'Reward Player 1 if Success on Task 1, OR on Task 2, OR on BOTH Task 1 AND Task 2'),
