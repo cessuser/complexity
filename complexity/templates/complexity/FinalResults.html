@@ -7,11 +7,8 @@
 {% endblock %}
 
 {% block inner_content %}
-{#    TODO: INsert the following block here #}
-      
-    Three of these 20 rounds have been randomly selected in order to determine your earnings for these 10 rounds
-    Rounds x, y, and z were chosen — Your earnings for these rounds were XXX ECUs, YYY ECUs, and ZZZ ECUs. Your total
-    earnings in the session so far are XXX+YYY+ZZZ = VVV ECUs.
+   
+
 
 
     <div class="card mb-3 ">
@@ -21,18 +18,22 @@
 
                 <div class="mb-3">
                     <div>
-                        You have played 20 rounds in Modules 1 and 2.
+                        You have played {{ Constants.num_periods }} rounds in Modules 1 and 2.
                     </div>
 
                     <div>
-                        One of these {{ Constants.num_second_part }} rounds has been randomly selected in order
-                        to determine your earnings for these {{ num_second_part.num_first_part }}rounds.
+                        Two of these {{ Constants.num_periods }} rounds have been randomly selected in order to
+                        determine your earnings.
+
                     </div>
                     <div>
-                        Round <strong>{{ paying_round2 }}</strong> was chosen.
+                        Rounds {{ chosen_round1 }}, and {{ chosen_round2 }}
+                        were chosen — Your earnings for these rounds were {{ first_pay }}, and {{ second_pay }}.
                     </div>
                     <div>
-                        Your earnings for this round are: <strong>{{ chosen_payoff }}</strong>
+                        Your total
+                        earnings in the session so far are {{ first_pay }} + {{ second_pay }}
+                        = {{ participant.payoff }}.
                     </div>
                 </div>
 

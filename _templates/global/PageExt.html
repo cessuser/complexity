@@ -7,11 +7,8 @@
 {% block global_scripts %}
 {% endblock %}
 
-{% block title %}
-
-    {% block inner_title %}{% endblock %}. Round {{ view.round_number }} of {{ Constants.num_rounds }}
-
-{% endblock %}
+{% block title %}{% block inner_title %}{% endblock %}. Round {{ view.round_number }} of
+    {{ Constants.num_rounds }}{% endblock %}
 
 {% block content %}
 

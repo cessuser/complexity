@@ -15,24 +15,15 @@
             <div class="card-body">
                 <h5 class="card-title">Switching roles</h5>
                 <div class="mb-3">
+
                     <div>
-                        You have played {{ Constants.num_first_part }} rounds of this game.
+                        You will now play {{ Constants.num_second_part }} more
+                        round{{ Constants.num_second_part|pluralize }} of the exact same game but now in the role of
+                        {{ player.get_role_name }}. 
                     </div>
                     <div>
-                        You will now switch roles with {{ player.get_role_name }} and continue to
-                        play {{ Constants.num_second_part }}
-                        more
-                        rounds of the exact same game.
-                    </div>
-                    <div>
-                        One of these {{ Constants.num_first_part }} rounds has been randomly selected in order
-                        to determine your earnings.
-                    </div>
-                    <div>
-                        Round <strong>{{ participant.vars.paying_rounds.0 }}</strong> was chosen.
-                    </div>
-                    <div>
-                        Your earnings for this round are: <strong>{{ chosen_payoff }}</strong>
+                        This
+                        is the last module of that game. Modules 3 and 4 will be different experiments.
                     </div>
                 </div>
 

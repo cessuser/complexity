@@ -27,12 +27,12 @@
                 <td>{{ task1cost }}</td>
             </tr>
             <tr>
-                <td>Your cost on Task 1:</td>
+                <td>Your cost on Task 2:</td>
                 <td>{{ task2cost }}</td>
             </tr>
             <tr>
-                <td>P2 Retention decision:</td>
-                <td>{{ group.get_retention_decision|yesno:'Retain, Fire' }}</td>
+                <td>P2 Reward decision:</td>
+                <td>{{ group.get_retention_decision|yesno:'Reward, No Reward' }}</td>
             </tr>
             <tr>
                 <td>Your gain from retention:</td>
@@ -40,14 +40,14 @@
             </tr>
 
         {% else %}
-            <tr>
-                <td>Your gain from tasks success:</td>
-                <td>{{ sum_task_success_gain }}</td>
-            </tr>
-            <tr>
-                <td>Your gain from correct guessing of P1 decisions:</td>
-                <td>{{ sum_guess_gain }}</td>
-            </tr>
+{#            <tr>#}
+{#                <td>Your gain from tasks success:</td>#}
+{#                <td>{{ sum_task_success_gain }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td>Your gain from correct guessing of P1 decisions:</td>#}
+{#                <td>{{ sum_guess_gain }}</td>#}
+{#            </tr>#}
         {% endif %}
         <tr>
             <td>Your payoff in this round:</td>

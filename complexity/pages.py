@@ -3,7 +3,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-def vars_for_all_templates():
+def vars_for_all_templates(self):
     return {'role1': Constants.roles_dict['P1'],
             'role2': Constants.roles_dict['P2'], }
 
@@ -77,6 +77,11 @@ class P2FirstDecision(P2Page):
 
 
 class P2SecondDecision(P2Page):
+    def is_displayed(self):
+        print('AAAA',self.round_number)
+        print('BBBB', Constants.p2_second_decision_rounds)
+        return super().is_displayed() and self.round_number in Constants.p2_second_decision_rounds
+
     form_fields = ['task1guess', 'task2guess']
 
 
@@ -106,10 +111,15 @@ class FinalResults(CustomPage):
         return super().is_displayed() and self.round_number == Constants.num_rounds
 
     def vars_for_template(self):
-        chosen_round = self.participant.vars['paying_rounds'][1]
-
-        return {'chosen_payoff': self.player.in_round(chosen_round).payoff,
-                'paying_round2': chosen_round - Constants.num_first_part}
+        chosen_round1 = self.participant.vars['paying_rounds'][0]
+        chosen_round2 = self.participant.vars['paying_rounds'][1]
+        return {
+            'chosen_round1': chosen_round1,
+            'chosen_round2': chosen_round2,
+            'first_pay': self.player.in_round(chosen_round1).payoff,
+            'second_pay': self.player.in_round(chosen_round2).payoff,
+            # 'paying_round2': chosen_round - Constants.num_first_part,
+        }
 
 
 page_sequence = [
@@ -120,8 +130,10 @@ page_sequence = [
     # P1Example,
     P2Instructions,
     # P2Example,
-    P1Decision,
     P2FirstDecision,
+    WaitPage,
+    P1Decision,
+
     P2SecondDecision,
     BeforeOutcomeWP,
     Outcome,
