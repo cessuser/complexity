@@ -35,24 +35,15 @@
                 <td>{{ group.get_retention_decision|yesno:'Reward, No Reward' }}</td>
             </tr>
             <tr>
-                <td>Your gain from retention:</td>
+                <td>Your gain from reward:</td>
                 <td>{{ retention_gain }}</td>
             </tr>
-
-        {% else %}
-{#            <tr>#}
-{#                <td>Your gain from tasks success:</td>#}
-{#                <td>{{ sum_task_success_gain }}</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <td>Your gain from correct guessing of P1 decisions:</td>#}
-{#                <td>{{ sum_guess_gain }}</td>#}
-{#            </tr>#}
+            <tr>
+                <td>Your payoff in this round:</td>
+                <td>{{ player.payoff }}</td>
+            </tr>
         {% endif %}
-        <tr>
-            <td>Your payoff in this round:</td>
-            <td>{{ player.payoff }}</td>
-        </tr>
+
 
     </table>
 

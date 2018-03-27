@@ -104,6 +104,9 @@ class Outcome(CustomPage):
             'sum_task_success_gain': sum_task_success_gain,
             'sum_guess_gain': sum_guess_gain,
         }
+    def before_next_page(self):
+        if self.round_number==Constants.num_rounds:
+            self.group.set_final_payoff()
 
 
 class FinalResults(CustomPage):

@@ -142,10 +142,23 @@ class Group(BaseGroup):
         P1.payoff = (Constants.p1endowment - (self.task1decision + self.task2decision) * Constants.lotterycost +
                      self.get_retention_decision() * Constants.retention_prize)
 
+    def set_final_payoff(self):
+        assert self.round_number == Constants.num_rounds, 'You should not call this method before the final round'
+        for p in self.get_players():
+            paying_rounds = p.participant.vars['paying_rounds']
+            for r in p.in_all_rounds():
+                r.temp_payoff = r.payoff
+                if r.round_number not in paying_rounds:
+                    r.payoff = 0
+
+
+
+
 
 class Player(BasePlayer):
     """we defining role simply as: at the first part of the study odd players are P1s, and at the
     second half: even players become P1s"""
+    temp_payoff = models.CurrencyField(doc='to store all interim payoffs')
 
     def role(self):
         roles = list(Constants.roles_dict.keys())
