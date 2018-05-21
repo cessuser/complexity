@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Questionnaire
+
+{% endblock %}
+
+{% block content %}
+    <ol type="a" class="list-group">
+        <li class="list-group-item">
+            You will receive a payment for answering the following questionnaire, which will be determined as follows.
+        </li>
+        <li class="list-group-item">
+            On your screen there will be a button that will allow you to roll a dice virtually.
+        </li>
+        <li class="list-group-item">
+            You will then be asked to report the number that comes out. You will earn 100 x the number reporting on
+            {{curname}}.
+        </li>
+        <li class="list-group-item">
+            The virtual die is a fair die, all faces have the same odds of appearing. If you would like to confirm this,
+            you can roll the die as many times as you like, we just ask you to report the result of the first toss.
+            Alternatively, you can go to the website <a href="https://www.random.org/">https://www.random.org/</a> where
+            there is a virtual die that you can
+            toss.
+        </li>
+        <li class="list-group-item">
+            We do not have any association with that website, we just leave it as an option.
+        </li>
+    </ol>
+    <div class="mt-3">
+        {% next_button %}
+    </div>
+{% endblock %}

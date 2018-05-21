@@ -1,0 +1,136 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Dice rolling
+{% endblock %}
+
+{% block content %}
+    <div class="demo">
+        <div class="wrap">
+            <div id="dice" class="dice dice_1"></div>
+        </div>
+        <p id="result">Please click above dice!</p>
+    </div>
+    {% formfield player.dice %}
+    {% next_button %}
+    <ol type="a" class="list-group">
+
+        <li class="list-group-item">
+            This virtual die is a fair die, all faces have the same odds of appearing. If you would like to confirm this,
+            you can roll the die as many times as you like, we just ask you to report the result of the first toss.
+            Alternatively, you can go to the website <a href="https://www.random.org/">https://www.random.org/</a> where
+            there is a virtual die that you can
+            toss.
+        </li>
+        <li class="list-group-item">
+            We do not have any association with that website, we just leave it as an option.
+        </li>
+    </ol>
+{% endblock %}
+
+
+{% block scripts %}
+    {#    ORIGINAL CODE FOR DICE ROLLING IS TAKEN FROM HERE: http://www.goocode.net/js/51-jquery-dice-animation.html #}
+    <script>
+        $(function () {
+            var dice = $("#dice");
+            dice.click(function () {
+                $(".wrap").append("<div id='dice_mask'></div>");//add mask
+                dice.attr("class", "dice");//After clearing the last points animation
+                dice.css('cursor', 'default');
+                var num = Math.floor(Math.random() * 6 + 1);//random num 1-6
+                dice.animate({left: '+2px'}, 100, function () {
+                    dice.addClass("dice_t");
+                }).delay(200).animate({top: '-2px'}, 100, function () {
+                    dice.removeClass("dice_t").addClass("dice_s");
+                }).delay(200).animate({opacity: 'show'}, 600, function () {
+                    dice.removeClass("dice_s").addClass("dice_e");
+                }).delay(100).animate({left: '-2px', top: '2px'}, 100, function () {
+                    dice.removeClass("dice_e").addClass("dice_" + num);
+                    $("#result").html("Your throwing points are<span>" + num + "</span>");
+                    dice.css('cursor', 'pointer');
+                    $("#dice_mask").remove();//remove mask
+                });
+            });
+        });
+    </script>
+
+{% endblock %}
+
+
+{% block styles %}
+    <style>
+        .wrap {
+            width: 90px;
+            height: 90px;
+            margin: 120px auto 30px auto;
+            position: relative
+        }
+
+        .dice {
+            width: 90px;
+            height: 90px;
+            background: url({% static "dice_roll/imgs/dice.png" %}) no-repeat;
+        }
+
+        .dice_1 {
+            background-position: -5px -4px
+        }
+
+        .dice_2 {
+            background-position: -5px -107px
+        }
+
+        .dice_3 {
+            background-position: -5px -212px
+        }
+
+        .dice_4 {
+            background-position: -5px -317px
+        }
+
+        .dice_5 {
+            background-position: -5px -427px
+        }
+
+        .dice_6 {
+            background-position: -5px -535px
+        }
+
+        .dice_t {
+            background-position: -5px -651px
+        }
+
+        .dice_s {
+            background-position: -5px -763px
+        }
+
+        .dice_e {
+            background-position: -5px -876px
+        }
+
+        p#result {
+            text-align: center;
+            font-size: 16px
+        }
+
+        p#result span {
+            font-weight: bold;
+            color: #f30;
+            margin: 6px
+        }
+
+        #dice_mask {
+            width: 90px;
+            height: 90px;
+            background: #fff;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999
+        }
+    </style>
+
+{% endblock %}
