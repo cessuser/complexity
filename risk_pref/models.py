@@ -12,7 +12,7 @@ R.Duch, D. Landa project on complexity
 
 
 class Constants(BaseConstants):
-    name_in_url = 'complexity'
+    name_in_url = 'risk_pref'
     players_per_group = None
     num_rounds = 1
 

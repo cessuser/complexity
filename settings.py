@@ -21,6 +21,18 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['complexity'],
     },
+    {
+        'name': 'die_game',
+        'display_name': "Die Game",
+        'num_demo_participants': 2,
+        'app_sequence': ['die_game'],
+    },
+    {
+        'name': 'risk_pref',
+        'display_name': "Risk Pref",
+        'num_demo_participants': 2,
+        'app_sequence': ['risk_pref'],
+    },
 ]
 
 # ISO-639 code
