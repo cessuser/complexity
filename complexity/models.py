@@ -8,7 +8,7 @@ import random
 author = 'Philipp Chapkovski'
 
 doc = """
-R.Duch, D. Landa project on complexity
+R.Duch, D. Landa project on die_game
 """
 
 
