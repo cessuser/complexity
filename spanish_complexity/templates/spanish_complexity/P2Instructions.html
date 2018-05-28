@@ -1,0 +1,108 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Instrucciones Jugador 2
+
+{% endblock %}
+
+{% block inner_content %}
+    <div class="col-12 mb-3 ">
+        <div class="card card-body bg-light">
+            <div class="mb-2 ">
+                Usted es Jugador 2 en este juego y ha sido aleatoriamente emparejado con un Jugador 1.
+
+            </div>
+            <div class="mb-2 ">
+
+                El jugador 1 tiene una suma inicial de {{ Constants.p1endowment | c }} ECUs. Ese jugador puede pagar el costo de aumentar la
+                probabilidad de Éxito en UNA, AMBAS o NINGUNA de las 2 Tareas: Tarea 1 y Tarea 2. El costo para el
+                Jugador 1 de incrementar la probabilidad de Éxito en cualquiera de las Tareas es de {{ Constants.lotterycost | c }} ECUs. Así, si el
+                Jugador 1 elige pagar el costo en una de las dos Tareas, se le descontarán {{ Constants.lotterycost|c }} ECUs en el pago de esa
+                ronda. Si decide pagar el costo en ambas Tareas, se le descontarán {{ Constants.p1endowment|c }} ECUs en el pago de esa ronda Si
+                decide no pagar el costo en ninguna Tarea, mantendrá su monto inicial por ronda de {{ Constants.p1endowment|c }} ECUs.
+
+
+            </div>
+            <div class="mb-2 ">
+
+                Si el Jugador 1 decide pagar el costo en una alguna Tarea, la probabilidad de Éxito de esa Tarea es 5 de
+                10, es decir, una probabilidad de 0,5 de que el resultado de esa Tarea sea Éxito. Si el Jugador 1 decide
+                no pagar ese costo, el resultado de esa Tarea será Fracaso.
+
+
+            </div>
+            <div class="mb-2 ">
+
+
+                Dependiendo del resultado en las dos Tareas, usted puede ganar dinero.
+
+                En cada ronda, antes de ver el resultado de las Tareas, usted primero deberá elegir la regla que
+                determine cuándo el Jugador 1 es recompensado, en función del resultado de las Tareas. Las opciones son:
+            </div>
+
+            <div class="mb-2 ">
+
+                <ul>
+                    {% for i in Constants.RETAININGCHOICES %}
+                        <li>{{ i.1 }}</li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+            <div class="mb-2 ">
+
+                Si de acuerdo con la Regla de Recompensas que usted ha determinado, el Jugador 1 es recompensado,
+                él/ella ganará 900 ECUs adicionales. Si de acuerdo con la regla que usted ha determinado, el jugador 1
+                no es recompensado, entonces el Jugador 1 no ganará dinero adicional.
+
+            </div>
+            <div class="mb-2 ">
+
+                En algunas, pero no todas, las rondas del módulo, además se le solicitará que haga una suposición acerca
+                de qué decisiones tomará el Jugador 1.
+
+
+            </div>
+            <div class="mb-2 ">
+
+                El pago que usted reciba por la ronda dependerá de 2 cosas: el resultado de cada tarea y las
+                suposiciones que usted haga acerca de las decisiones del Jugador 1. Por cada Tarea cuyo resultado sea
+                Éxito, usted ganará 280 ECUs. Y por cada suposición correcta usted ganará 140 ECUs.
+
+            </div>
+            {# TODO: insert normal codes instead of hardcoding here#}
+            <div class="mb-2 ">
+                Por ejemplo: suponga, como en el ejemplo anterior, que el Jugador 2 elige “Siempre Recompensar”.
+                Suponga además, que el Jugador 2 supuso que el Jugador 1 elegiría pagar el costo en ambas tareas, lo que
+                resultó ser correcto.
+
+            </div>
+            <div class="mb-2 ">
+                Si el resultado de ambas Tareas es Éxito, entonces el Jugador 2 recibe: 280 ECUs (Tarea 1) + 280 ECUs
+                (Tarea 2) + 140 ECUs (suposición Tarea q) + 140 ECU (Suposición Tarea 2)= 840 ECUs.
+
+            </div>
+            <div class="mb-2 ">
+                Si el resultado en la Tarea 1 es Éxito, pero el resultados de la Tarea 2 es Fracaso, entonces el Jugador
+                2 recibe 280 ECUs (Tarea 1) + 0 ECUs (Tarea 2) + 140 ECU (Suposición Task 1) + 140 ECU (Suposición Task
+                2) = 560 ECUs.
+
+            </div>
+            <div class="mb-2 ">
+                Si el resultado de la Tarea 1 es Fracaso pero el resultado de la Tarea 2 es Éxito, entonces el Jugador 2
+                recibe 0 ECUs (Tarea 1) + 280 ECUs (Tarea 2) + 140 ECU (Suposición Tarea 1) + 140 ECU (Suposición Tarea
+                Task 2) = 560 ECUs.
+
+            </div>
+            <div class="mb-2 ">
+
+               Si el resultado en ambas Tareas es Fracaso, entonces el Jugador 2 recibe 0 ECUs (Tarea 1) + 0 ECUs (Tarea
+                2) + 140 ECU (Suposición Tarea 1) + 140 ECU (Suposición Tarea 2) = 280 ECUs.
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

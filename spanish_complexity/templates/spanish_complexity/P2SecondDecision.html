@@ -1,0 +1,18 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block inner_title %}
+    P2 Second Decision
+
+
+{% endblock %}
+
+{% block inner_content %}
+<h5>What do you believe Player 1 will do? </h5>
+
+    {% formfield group.task1guess %}
+    {% formfield group.task2guess %}
+
+
+
+{% endblock %}

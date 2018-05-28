@@ -1,0 +1,63 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Instrucciones Jugador 1
+{% endblock %}
+
+{% block inner_content %}
+    <div class="col-12 mb-3 ">
+        <div class="card card-body bg-light">
+            <div class="mb-2 ">
+                Usted es el Jugador 1 en este juego y ha sido aleatoriamente emparejado con un Jugador 2.
+
+            </div>
+            <div class="mb-2 ">
+                En este juego, se le pedirá que decida si quiere o no pagar un costo por aumentar la probabilidad de
+                Éxito en UNA, AMBAS O NINGUNA de 2 Tareas: Tarea 1 y Tarea 2. Inicialmente, tiene un monto de 300 ECUs
+                (recuerde que 300 ECUs= $500) que puede gastar para aumentar la probabilidad de éxito de cada Tarea. El
+                costo de aumentar la probabilidad de Éxito en cada Tarea es de 150 ECUs. Así, si elige pagar el costo en
+                una de las dos Tareas, se le descontarán 150 ECUs de su pago en esa ronda. Si elige pagar el costo por
+                ambas Tareas, se le descontarán 300 ECUs del pago de esa ronda. Si elige no pagar el costo en ninguna de
+                las tareas, mantendrá sus 300 ECUs.
+
+            </div>
+            <div class="mb-2 ">
+
+                Antes de que tome la decisión de si pagará o no, el o los costos para mejorar la probabilidad de Éxito
+                en las Tareas 1 y 2, al Jugador 2 se le solicitará que decida con qué resultados usted será Recompensado
+                o No Recompensado.
+
+
+            </div>
+            <div class="mb-2 ">
+
+                Aquí están las Reglas de Decisiones de Recompensas que el Jugador 2 puede tomar:
+                <ul>
+                    {% for i in Constants.RETAININGCHOICES %}
+                        <li>{{ i.1 }}</li>
+                    {% endfor %}
+
+                </ul>
+
+
+            </div>
+            <div class="mb-2 ">
+
+                Si el Jugador 1 elige Recompensarle, usted ganará 900 ECUs adicionales en esa ronda. Si él/ella decide
+                No Recompensarle, usted no ganará dinero adicional en esa ronda.
+
+            </div>
+            <div class="mb-2 ">
+
+                Por ejemplo, si el Jugador 2 annuncia “SIEMPRE Recompensar al Jugador 1, y uste decide pagar por la
+                Tarea 1, pero no pagar por la Tarea 2, y el resultado de la Tarea 1 es Éxito y el de la Tarea 2 es
+                Fracaso; usted sería recompensado y sus ganancias para esta ronda serían: 300 ECUs (iniciales) - 150
+                ECUs (Tarea 1) - 0 ECUs (Tarea 2) + 900 ECUs (recompensa) = 1050 ECUs
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

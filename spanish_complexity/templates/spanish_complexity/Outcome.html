@@ -1,0 +1,39 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block inner_title %}
+    Outcome
+
+
+{% endblock %}
+
+{% block inner_content %}
+    <table class="table table-hover table-striped">
+        <tr>
+            <td>El resultado de la tarea 1 es</td>
+            <td>{{ group.get_task1outcome_display }}</td>
+        </tr>
+        <tr>
+            <td>El resultado de la tarea 2 es</td>
+            <td>{{ group.get_task2outcome_display }}</td>
+        </tr>
+        {% if player.role == 'P1' %}
+            <tr>
+                <td>Recuerde que la regla de decisión del Jugador 2 era</td>
+                <td>{{ group.get_retention_decision|yesno:'Recompensa, No hay recompensa' }}</td>
+            </tr>
+            <tr>
+                <td>Tu ganancia de recompensa:</td>
+                <td>{{ retention_gain }}</td>
+            </tr>
+            <tr>
+                <td>Tu recompensa en esta ronda:</td>
+                <td>{{ player.payoff }}</td>
+            </tr>
+        {% endif %}
+
+
+    </table>
+
+
+{% endblock %}

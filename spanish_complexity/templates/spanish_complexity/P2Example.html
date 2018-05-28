@@ -1,0 +1,37 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block inner_title %}
+    Player 2 Example:
+
+
+{% endblock %}
+
+{% block inner_content %}
+    SAMPLE DECISION SCREEN FOR PLAYER 2
+    First Decision Screen for Player 2
+    Choose a decision rule for Retaining or Firing Player 1:
+
+    NEVER Retain Player 1
+    Retain Player 1 if Success on BOTH Tasks
+    Retain Player 1 if Success on Task 1, OR on Task 2, OR on BOTH Task 1 AND Task 2
+    Retain Player 1 if Success on Task 1
+    Retain Player 1 if Success on Task 2
+    ALWAYS Retain Player 1
+
+    Second Decision Screen for Player 2
+    What do you believe Player 1 will do? 
+
+    Player 1 will pay the cost on Task 1    YES/NO
+    Player 2 will pay the cost on Task 2    YES/NO
+
+    Outcome Screen
+    The outcome on Task 1 is Success
+    The outcome on Task 2 is Success
+
+    STOP SUBJECT INSTRUCTIONS HERE
+
+
+    {% next_button %}
+
+{% endblock %}

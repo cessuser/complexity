@@ -1,0 +1,43 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Final results
+
+{% endblock %}
+
+{% block inner_content %}
+   
+    <div class="card mb-3 ">
+        <div class="card-header">
+
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <div>
+                        Has jugado 18 rondas en los módulos 1,2,3 y 4.
+                    </div>
+
+                    <div>
+                        Dos de estas 16 rondas han sido seleccionadas al azar para
+                        determina tus ganancias
+
+                    </div>
+                    <div>
+                        Rondas {{ modules1_chosen_round }}, y {{ modules2_chosen_round }}
+                        fueron escogidos — Sus ganancias para estas rondas fueron {{ modules1_payoff }}, y {{ modules2_payoff }}.
+                    </div>
+                    <div>
+                        Tu total
+                        ganancias en la sesión son{{ modules1_payoff }} + {{ modules2_payoff }}
+                        + {{ modules3_payoff }} + {{ modules4_payoff }}
+                        = {{ total_payoff }}.
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

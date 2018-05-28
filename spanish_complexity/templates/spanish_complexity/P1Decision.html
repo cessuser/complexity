@@ -1,0 +1,23 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block inner_title %}
+    J1 Decisión
+
+{% endblock %}
+
+{% block inner_content %}
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Jugador 2 ha anunciado:
+            </h4>
+            <i><strong>{{group.get_retaining_display}}
+            </strong></i>
+        </div>
+    </div>
+
+    {% formfield group.task1decision %}
+    {% formfield group.task2decision %}
+
+
+{% endblock %}

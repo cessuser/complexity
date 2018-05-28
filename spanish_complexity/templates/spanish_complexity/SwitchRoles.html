@@ -1,0 +1,35 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Introducción al Módulo 2
+
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="card ">
+        <div class="card-header">
+
+            <div class="card-body">
+                <h5 class="card-title">Switching roles</h5>
+                <div class="mb-3">
+
+                    <div>
+
+                        El experimento en el Módulo 2 tiene las mismas reglas que el experimento en el módulo 1. La
+                        única diferencia es que su rol en el nuevo experimento será como Jugador 1, si en el módulo
+                        anterior fue el jugador 2, y como Jugador 2 si anteriormente fue Jugador 1.  En todo lo demás,
+                        las interacciones en este nuevo experimento seguirán las mismas reglas que antes. Este será el
+                        último módulo de este juego en la sesión. Los módulos 3 y 4 tendrán reglas diferentes que serán
+                        anunciadas más adelante.
+
+                    </div>
+                </div>
+
+                {% next_button %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

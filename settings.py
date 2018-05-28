@@ -16,22 +16,22 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        'name': 'complexity',
-        'display_name': "complexity",
-        'num_demo_participants': 2,
-        'app_sequence': ['complexity'],
-    },
-    {
-        'name': 'die_game',
+        'name': 'spanish_die_game',
         'display_name': "Die Game",
         'num_demo_participants': 2,
-        'app_sequence': ['die_game'],
+        'app_sequence': ['spanish_die_game'],
     },
     {
-        'name': 'risk_pref',
+        'name': 'spanish_risk_pref',
         'display_name': "Risk Pref",
         'num_demo_participants': 2,
-        'app_sequence': ['risk_pref'],
+        'app_sequence': ['spanish_risk_pref'],
+    },
+    {
+        'name': 'spanish_complexity',
+        'display_name': "New Complexity Game",
+        'num_demo_participants': 2,
+        'app_sequence': ['spanish_complexity', 'spanish_risk_pref', 'spanish_die_game'],
     },
 ]
 

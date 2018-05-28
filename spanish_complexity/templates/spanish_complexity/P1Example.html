@@ -1,0 +1,39 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block inner_title %}
+    Player 1 Example:
+
+
+{% endblock %}
+
+{% block inner_content %}
+    Decision Screen for Player 1
+
+    Do you want to pay the cost on Task 1 — the cost is 150 ECUs and the chance of Success is 5 out of 10: YES/NO
+
+    Do you want to pay the cost on Task 2 — the cost is 150 ECUs and the chance of Success is 5 out 10: YES/NO
+
+
+    Suppose you chose to pay the cost on Task 1 but not to pay the cost on Task 2. After the outcomes on the two Tasks
+    are realized, both Players 1 and 2 will see the following screen:
+
+    Outcome Screen:
+
+           Task 1
+    The outcome on Task 1 is Failure
+              
+           Task 2
+    The outcome on Task 2 is Success
+
+    If Player 2 chooses to reward you, you will earn an additional 900 ECUs that round. If s/he chooses to fire you, you
+    will not earn any additional money that round.
+
+    For example, for the choices described on the sample screens above, given the retention rule announced by Player 2,
+    you would be rewarded, and so your total earnings for this round be: 300 ECUs (endowment) - 150 ECUs (Task 1) - 0
+    ECUs (Task 2) + 900 ECUs (retention) = 1050 ECUs.
+
+
+    {% next_button %}
+
+{% endblock %}

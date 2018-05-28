@@ -1,0 +1,65 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Introducción al Módulo 1
+
+{% endblock %}
+
+{% block inner_content %}
+    <div class="col-12 mb-3 ">
+        <div class="card card-body bg-light">
+
+
+            <div class="mb-2 ">
+                El experimento en el Módulo 1 consistirá en 8 rondas diferentes. Al principio de la primera ronda se le
+                asignará aleatoriamente el rol de Jugador 1 o Jugador 2. Mantendrá ese rol hasta finalizar el
+                experimento.
+
+            </div>
+            <div class="mb-2 ">
+                En cada ronda, aleatoriamente se formarán parejas compuestas por un Jugador 1 y un Jugador 2. En cada
+                ronda se formarán nuevas parejas, siempre con un participante nuevo/diferente. La composición de cada
+                pareja será, por lo tanto, diferente en cada una de las rondas de este experimento. Todas las
+                interacciones de los participantes se llevarán a cabo de manera anónima en un computador, por lo que
+                su identidad personal nunca será revelada a otros y usted no conocerá con quién ha sido emparejado en
+                cada una de las rondas del experimento.
+
+            </div>
+            <div class="mb-2 ">
+
+                En cada ronda del experimento, quien tenga el rol de Jugador 1, toma decisiones que afectan el resultado
+                de dos tareas. Para cada una de ellas el Jugador 1 debe decidir si paga un monto por aumentar la
+                probabilidad de que el resultado de la tarea sea Éxito, o adelantar ese costo con la consecuencia de que
+                el resultado de la tarea sea certeramente un Fracaso.
+
+
+            </div>
+            <div class="mb-2 ">
+
+
+                Si el Jugador 1 elige pagar el costo, la probabilidad de Éxito de esa tarea es 5 de 10. Es decir, existe
+                0.5 probabilidad de que el resultado de la Tarea sea Éxito. Si el Jugador 1 elige no pagar el costo,
+                entonces el resultado de la Tarea será un Fracaso.
+
+
+            </div>
+
+            <div class="mb-2 ">
+
+                Al Jugador 2 se le pagará dependiendo del resultado de la Tarea. Al jugador 1 se le pagará dependiendo
+                de la decisión que tome el Jugador 2 acerca de si recompensar o no al Jugador 1.
+
+
+            </div>
+            <div class="mb-2 ">
+
+            Sus ganancias de este experimento serán determinadas a través de la selección aleatoria de una ronda.
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

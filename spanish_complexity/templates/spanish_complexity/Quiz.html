@@ -1,0 +1,84 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Quiz
+{% endblock %}
+
+{% block inner_content %}
+    <style>
+        .question-container {
+            display:flex;
+            justify-content:center;
+            align-items:start;
+            flex-direction:column;
+        }
+        .question-content {
+            padding: 24px 0;
+        }
+        .question-answer {
+            display: none;
+            border-left: solid 5px #17a2b8;
+            padding-left: 12px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .choices {
+            margin: 16px 0;
+        }
+        .true-answer {
+            font-size: 18px;
+            margin: -1px 4px;
+            color: #007bff;
+        }
+    </style>
+    <div class="col-12 mb-3 ">
+        <div class="card card-body bg-light">
+
+            <div class="mb-2 ">
+
+                Por ejemplo, si el Jugador 2 annuncia “SIEMPRE Recompensar al Jugador 1, y uste decide pagar por la
+                Tarea 1, pero no pagar por la Tarea 2, y el resultado de la Tarea 1 es Éxito y el de la Tarea 2 es
+                Fracaso; usted sería recompensado y sus ganancias para esta ronda serían: 300 ECUs (iniciales) - 150
+                ECUs (Tarea 1) - 0 ECUs (Tarea 2) + 900 ECUs (recompensa) = 1050 ECUs
+            </div>
+
+            {% for question in questions %}
+                <div class='question-container'>
+                    <div class='question-content'>
+                        {{ question.content }}
+                    </div>
+                    <div id={{question.id}}>
+                        {% for choice in question.choices %}
+                            <div class='choices' onclick='clickChoice(this)'>
+                                <label>
+                                    <input type="radio" name={{question.id}}>
+                                    {{choice}}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div id={{question.id}}_answer class='question-answer'>
+                        {{question.desc}}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<script>
+    function chooseAnswer(question) {
+        var node = document.getElementById(question + '_answer')
+        node.style.display = "flex"
+    }
+    function clickChoice(t) {
+        var p = t.parentNode
+        var node_id = p.id + '_answer'
+        console.log(node_id)
+        var node = document.getElementById(node_id)
+        node.style.display = "flex"
+    }
+</script>
+
+{% endblock %}
+

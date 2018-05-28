@@ -1,0 +1,43 @@
+{% extends "global/PageExt.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Resultados Finales
+
+{% endblock %}
+
+{% block inner_content %}
+   
+
+
+
+    <div class="card mb-3 ">
+        <div class="card-header">
+
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <div>
+
+                        Usted ha jugado un total de  {{ Constants.num_rounds }}  rondas en los Módulos 1 y 2. Dos de esas rondas han sido
+                        seleccionadas aleatoriamente para determinar sus ganancias en estos módulos, una de cada módulo.
+
+                    </div>
+
+                    <div>
+                        Las Rondas {{ chosen_round1 }} y {{ chosen_round2 }} han sido elegidas – Sus ganancias para
+                        estas rondas fueron de {{ first_pay }} ECUs y {{ second_pay}} ECUs.El total de sus ganancias
+                        hasta el momento en la sesión es de XXX ECUs+ YYY ECUs = VVV ECUs
+
+                        Two of these {{ Constants.num_rounds }} rounds have been randomly selected in order to
+                        determine your earnings.
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

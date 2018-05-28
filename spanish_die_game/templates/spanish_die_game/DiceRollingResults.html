@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Results of throwing the dice
+{% endblock %}
+
+{% block content %}
+<table class="table">
+    <tr>
+        <td>You entered the number:</td>
+        <td>{{ player.dice }}</td>
+    </tr>
+    <tr>
+
+        <td>Your profit:</td>
+        <td>{{ player.payoff }}</td>
+    </tr>
+</table>
+
+
+
+
+{% next_button %}
+
+{% endblock %}
